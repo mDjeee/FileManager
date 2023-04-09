@@ -34,7 +34,8 @@ const fileManage = () => {
     }
 
     if(command === 'ls') {
-      ls(process.cwd());
+      await ls(currentDir);
+      console.log(`You are currently in ${currentDir}`);
     }
 
     if(command === '.exit') {
