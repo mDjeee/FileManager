@@ -10,6 +10,7 @@ import goodbye from './utils/goodbye.js';
 import ls from './nwd/ls.js';
 import cd from './nwd/cd.js';
 import up from './nwd/up.js';
+import cat from './fs/cat.js';
 
 const input = process.argv;
 const username = getUsername(input);
@@ -36,6 +37,11 @@ const fileManage = () => {
     if(command === 'ls') {
       await ls(currentDir);
       console.log(`You are currently in ${currentDir}`);
+    }
+
+    if(command === 'cat') {
+      const fileName = commandString.toString().split(' ')[1];
+      await cat(currentDir, fileName);
     }
 
     if(command === '.exit') {
