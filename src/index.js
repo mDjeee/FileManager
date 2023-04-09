@@ -11,6 +11,7 @@ import ls from './nwd/ls.js';
 import cd from './nwd/cd.js';
 import up from './nwd/up.js';
 import cat from './fs/cat.js';
+import add from './fs/add.js';
 
 const input = process.argv;
 const username = getUsername(input);
@@ -42,6 +43,11 @@ const fileManage = () => {
     if(command === 'cat') {
       const fileName = commandString.toString().split(' ')[1];
       await cat(currentDir, fileName);
+    }
+
+    if(command === 'add') {
+      const fileName = commandString.toString().split(' ')[1];
+      await add(currentDir, fileName);
     }
 
     if(command === '.exit') {
