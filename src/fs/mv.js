@@ -14,12 +14,10 @@ async function mv(currentDir, fileName, destFolder) {
 
     readable.on('error', () => {
       console.log('Operation failed!');
-      console.log(`You are currently in ${currentDir}`);
     })
     
     writable.on('error', () => {
       console.log('Operation failed!');
-      console.log(`You are currently in ${currentDir}`);
     })
 
     readable.pipe(writable);
@@ -29,7 +27,6 @@ async function mv(currentDir, fileName, destFolder) {
         if(err) {
           console.log('Operation failed!');
         }
-        console.log(`You are currently in ${currentDir}`);
       })
     })
   }

@@ -11,13 +11,8 @@ async function cat(currentDir, fileName) {
     })
 
     readable.on('error', () => {
-      console.error('Operation failed!')
-      console.log(`You are currently in ${currentDir}`);
-    })
-
-    readable.on('end', () => {
-      console.log(`You are currently in ${currentDir}`);
-    })
+      console.error('Operation failed!');
+    });
   }
   catch {
     console.error('Operation failed!')

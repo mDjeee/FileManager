@@ -20,10 +20,6 @@ async function cp(currentDir, fileName, destFolder) {
     })
 
     readable.pipe(writable);
-
-    writable.on('finish', () => {
-      console.log(`You are currently in ${currentDir}`);
-    })
   }
   catch {
     console.error('Operation failed!')

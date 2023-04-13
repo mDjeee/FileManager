@@ -4,10 +4,7 @@ import { join } from "path";
 async function add(currentDir, fileName) {
   writeFile(join(currentDir, fileName), '', (err) => {
     if(err) {
-      console.error('Operation failed!')
-      console.log(`You are currently in ${currentDir}`);
-    } else {
-      console.log(`You are currently in ${currentDir}`);
+      console.error('Operation failed!');
     }
   })
 }

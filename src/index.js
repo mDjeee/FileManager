@@ -30,17 +30,14 @@ const fileManage = () => {
     if(command === 'cd') {
       const path = commandString.toString().split(' ')[1];
       currentDir = await cd(currentDir, path);
-      console.log(`You are currently in ${currentDir}`);
     }
 
     if(command === 'up') {
       currentDir = up(currentDir);
-      console.log(`You are currently in ${currentDir}`);
     }
 
     if(command === 'ls') {
       await ls(currentDir);
-      console.log(`You are currently in ${currentDir}`);
     }
 
     if(command === 'cat') {
@@ -61,15 +58,23 @@ const fileManage = () => {
 
     if(command === 'cp') {
       const fileName = commandString.toString().split(' ')[1];
-      const destFolder = commandString.toString().split(' ')[2];
+      let destFolder = commandString.toString().split(' ')[2];
+      if (destFolder === './') {
+        destFolder = currentDir.split(sep).join('/');
+      }
       await cp(currentDir, fileName, destFolder);
     }
 
     if(command === 'mv') {
       const fileName = commandString.toString().split(' ')[1];
-      const destFolder = commandString.toString().split(' ')[2];
+      let destFolder = commandString.toString().split(' ')[2];
+      if (destFolder === './') {
+        destFolder = currentDir.split(sep).join('/');
+      }
       await mv(currentDir, fileName, destFolder);
     }
+
+    console.log(`You are currently in ${currentDir}`);
 
     if(command === '.exit') {
       goodbye(username);

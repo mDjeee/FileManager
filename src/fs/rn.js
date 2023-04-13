@@ -8,7 +8,6 @@ async function rn(currentDir, oldFileName, newFileName) {
     if(err) {
       console.error('Operation failed!');
     }
-    console.log(`You are currently in ${currentDir}`);
   })
 }
 
