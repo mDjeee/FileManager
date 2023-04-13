@@ -13,6 +13,7 @@ import up from './nwd/up.js';
 import cat from './fs/cat.js';
 import add from './fs/add.js';
 import rn from './fs/rn.js';
+import cp from './fs/cp.js';
 
 const input = process.argv;
 const username = getUsername(input);
@@ -51,10 +52,17 @@ const fileManage = () => {
       await add(currentDir, fileName);
     }
 
-    if(command == 'rn') {
+    if(command === 'rn') {
       const oldFileName = commandString.toString().split(' ')[1];
       const newFileName = commandString.toString().split(' ')[2];
       await rn(currentDir, oldFileName, newFileName);
+    }
+
+    if(command === 'cp') {
+      const fileName = commandString.toString().split(' ')[1];
+      const destFolder = commandString.toString().split(' ')[2];
+      await cp(currentDir, fileName, destFolder);
+      console.log(`You are currently in ${currentDir}`);
     }
 
     if(command === '.exit') {
