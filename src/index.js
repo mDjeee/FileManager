@@ -15,6 +15,7 @@ import add from './fs/add.js';
 import rn from './fs/rn.js';
 import cp from './fs/cp.js';
 import mv from './fs/mv.js';
+import rm from './fs/rm.js';
 
 const input = process.argv;
 const username = getUsername(input);
@@ -72,6 +73,11 @@ const fileManage = () => {
         destFolder = currentDir.split(sep).join('/');
       }
       await mv(currentDir, fileName, destFolder);
+    }
+
+    if(command === 'rm') {
+      const fileName = commandString.toString().split(' ')[1];
+      await rm(currentDir, fileName);
     }
 
     console.log(`You are currently in ${currentDir}`);
