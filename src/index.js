@@ -15,6 +15,8 @@ import cp from './fs/cp.js';
 import mv from './fs/mv.js';
 import rm from './fs/rm.js';
 import getHash from './hash/getHash.js';
+import compress from './compress/compress.js';
+import decompress from './compress/decompress.js';
 
 const input = process.argv;
 const username = getUsername(input);
@@ -108,6 +110,22 @@ const fileManage = () => {
     else if (command === commands.hash) {
       const fileName = commandString.toString().split(' ')[1];
       await getHash(currentDir, fileName);
+    }
+    else if (command === 'compress') {
+      const fileName = commandString.toString().split(' ')[1];
+      let destFolder = commandString.toString().split(' ')[2];
+      if (destFolder === './') {
+        destFolder = currentDir.split(sep).join('/');
+      }
+      await compress(currentDir, fileName, destFolder)
+    }
+    else if (command === 'decompress') {
+      const fileName = commandString.toString().split(' ')[1];
+      let destFolder = commandString.toString().split(' ')[2];
+      if (destFolder === './') {
+        destFolder = currentDir.split(sep).join('/');
+      }
+      await decompress(currentDir, fileName, destFolder)
     }
     else {
       console.log('Wrong command, try again!')

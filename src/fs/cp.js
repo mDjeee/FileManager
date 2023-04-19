@@ -7,7 +7,6 @@ async function cp(currentDir, fileName, destFolder) {
     const source = getSourceFilePath(currentDir, fileName);
     const dest = getDestFilePath(currentDir, destFolder, fileName, source);
 
-    console.log(source, dest)
     const readable = createReadStream(source);
     const writable = createWriteStream(dest);
 
