@@ -1,3 +1,8 @@
+# File Manager
+
+- To run application use `npm run start -- --username=yourName`
+
+
 # Scoring: File Manager
 Overall 330/330
 ## Basic Scope
